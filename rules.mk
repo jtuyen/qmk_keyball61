@@ -1,1 +1,5 @@
-../keyball/qmk_0_22_14/keyboards/keyball/keyball61/keymaps/default/rules.mk
+RGBLIGHT_ENABLE = no
+
+OLED_ENABLE = yes
+LEADER_ENABLE = yes
+COMBO_ENABLE = yes
