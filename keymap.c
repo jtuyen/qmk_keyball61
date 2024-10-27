@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,KC_Q,KC_W,KC_E,KC_R,KC_T,KC_Y,KC_U,KC_I,KC_O,KC_P,KC_DEL,
     ALL_T(KC_ESC),KC_A,KC_S,KC_D,KC_F,KC_G,KC_H,KC_J,KC_K,KC_L,KC_SCLN,KC_QUOT,
     KC_LSFT,KC_Z,KC_X,KC_C,KC_V,KC_B,LCTL_T(KC_SPC),LALT_T(KC_MINS),KC_N,KC_M,KC_COMM,KC_DOT,KC_SLSH,KC_BSLS,
-    MT(KC_AUDIO_VOL_DOWN,KC_NO),MT(KC_AUDIO_VOL_UP,KC_NO),MT(MOD_MEH,KC_ESC),KC_LGUI,QK_LEAD,KC_ENT,TT(2),MO(1),KC_SPC,KC_NO,KC_NO,KC_NO,KC_BTN2,KC_BTN1
+    KC_NO,KC_NO,MT(MOD_MEH,KC_ESC),KC_LGUI,QK_LEAD,KC_ENT,TT(2),MO(1),KC_SPC,KC_NO,KC_NO,KC_NO,KC_BTN2,KC_BTN1
   ),
 
   [MAC_SYMBOL] = LAYOUT_universal(
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     SSNP_FRE,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
     SSNP_VRT, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), LGUI(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC,
     SSNP_HOR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_4),
-    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSA(KC_LEFT), RCS(KC_TAB), KC_PGDN, LSA(KC_RIGHT), KC_MRWD, KC_MFFD,
+    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSA(KC_LEFT), RCS(KC_TAB), KC_PGDN, LSA(KC_RIGHT), MT(KC_MRWD,KC_AUDIO_VOL_DOWN), MT(KC_MFFD,KC_AUDIO_VOL_UP),
     SCRL_MO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,TO(0), TO(6),KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,KC_TRNS
   ),
 
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_DEL,
     LGUI_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, LCTL_T(KC_SPC), LALT_T(KC_MINS), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_BSLS,
-    MT(KC_AUDIO_VOL_DOWN,KC_NO), MT(KC_AUDIO_VOL_UP,KC_NO), MT(MOD_MEH,KC_ESC), KC_LWIN, QK_LEAD, KC_ENT, TT(5), MO(4), KC_SPC, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1
+    KC_NO, KC_NO, MT(MOD_MEH,KC_ESC), KC_LWIN, QK_LEAD, KC_ENT, TT(5), MO(4), KC_SPC, KC_NO, KC_NO, KC_NO, KC_BTN2, KC_BTN1
   ),
 
   [WIN_SYMBOL] = LAYOUT_universal(
@@ -120,9 +120,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [WIN_NAVIGATION] = LAYOUT_universal(
     SSNP_FRE,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
-    SSNP_VRT, KC_NO, KC_NO, LGUI(KC_E), LCTL(KC_F5), LSG(KC_RIGHT), LALT(KC_LEFT), LCTL(KC_TAB), LALT(KC_RIGHT), KC_PGUP, KC_NO, KC_BSPC,
+    SSNP_VRT, KC_NO, KC_NO, LGUI(KC_E), LCTL(KC_F5), LSG(KC_RIGHT), LALT(KC_LEFT), KC_PGUP, LALT(KC_RIGHT), KC_NO, KC_NO, KC_BSPC,
     SSNP_HOR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S),
-    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RCS(KC_LEFT), RCS(KC_TAB), KC_PGDN, RCS(KC_RIGHT), KC_MRWD, KC_MFFD,
+    KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RCS(KC_LEFT), RCS(KC_TAB), KC_PGDN, RCS(KC_RIGHT), MT(KC_MRWD,KC_AUDIO_VOL_DOWN), MT(KC_MFFD,KC_AUDIO_VOL_UP),
     SCRL_MO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(3), TO(6), KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,KC_TRNS
   ),
 
@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
   ),
 
 };
@@ -161,6 +161,27 @@ bool is_macro_active = false;
 bool insomnia_direction = false; // used to alternate direction
 uint16_t insomnia_frequency = 5000; // how often to move the mouse (5 seconds)
 uint16_t insomnia_timer = 0;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case INSOMNIA:
+            if (record->event.pressed) {
+                is_insomnia_active = !is_insomnia_active;
+            }
+            break;
+        case TO(0):
+            if (record->event.pressed) {
+                is_insomnia_active = false;
+            }
+            break;
+        case TO(3):
+            if (record->event.pressed) {
+                is_insomnia_active = false;
+            }
+            break;
+    }
+    return true;
+}
 
 void matrix_scan_user(void) {
     if (is_keyboard_master()) {
