@@ -146,15 +146,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
 };
-// clang-format on
-
-/*
-layer_state_t layer_state_set_user(layer_state_t state) {
-    // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(get_highest_layer(state) == 3);
-    return state;
-}
-*/
 
 #ifdef OLED_ENABLE
 
@@ -177,7 +168,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case INSOMNIA:
             if (record->event.pressed) {
+                if (layer_state_is(MAC_BASE)) {
+                    break;
+                } else if (layer_state_is(WIN_BASE)) {
+                    break;
+                } else {
                 is_insomnia_active = !is_insomnia_active;
+                }
             }
             break;
         case TO(0):
@@ -267,7 +264,7 @@ void leader_end_user(void) {
         tap_code16(C(KC_B));
         tap_code16(KC_O);
     // winmac: alt tab or gui tab
-    } else if (leader_sequence_one_key(KC_MINS)) {
+    } else if (leader_sequence_one_key(KC_TAB)) {
         if (layer_state_is(MAC_BASE)) {
             tap_code16(G(KC_TAB));
         };
