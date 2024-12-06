@@ -271,15 +271,38 @@ void leader_end_user(void) {
         if (layer_state_is(WIN_BASE)) {
             tap_code16(A(KC_TAB));
         };
-    // windows: close window/tab
+    // winmac: close window/tab
     } else if (leader_sequence_one_key(KC_W)) {
-        tap_code16(C(KC_W));
-    // windows: new tab
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_W));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_W));
+        };
+    // winmac: new tab
     } else if (leader_sequence_one_key(KC_T)) {
-        tap_code16(C(KC_T));
-    // windows: quit/close window
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_T));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_T));
+        };
+    // winmac: quit/close window
     } else if (leader_sequence_one_key(KC_Q)) {
-        tap_code16(A(KC_F4));
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_Q));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(A(KC_F4));
+        };
+    // winmac: refresh window
+    } else if (leader_sequence_one_key(KC_R)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_R));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(A(KC_F5));
+        };
     }
 }
 
