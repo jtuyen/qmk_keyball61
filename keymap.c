@@ -197,7 +197,7 @@ void matrix_scan_user(void) {
         if (insomnia_timer == 0) insomnia_timer = timer_read();
     };
 
-    if (is_insomnia_active) {
+    if (layer_state_is(OPTIONS) && is_insomnia_active) {
         if (timer_elapsed(insomnia_timer) > insomnia_frequency) {
             insomnia_timer = timer_read();
             if (insomnia_direction) {
