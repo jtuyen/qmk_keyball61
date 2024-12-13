@@ -139,10 +139,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [OPTIONS] = LAYOUT_universal(
     TO(0),TO(3),KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
-    RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA,
     RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
   ),
 
 };
@@ -161,7 +161,7 @@ void oledkit_render_info_user(void) {
 bool is_insomnia_active = false;
 bool is_macro_active = false;
 bool insomnia_direction = false; // used to alternate direction
-uint16_t insomnia_frequency = 5000; // how often to move the mouse (5 seconds)
+uint16_t insomnia_frequency = 2000; // how often to move the mouse (5 seconds)
 uint16_t insomnia_timer = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -172,8 +172,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     break;
                 } else if (layer_state_is(WIN_BASE)) {
                     break;
-                } else {
-                is_insomnia_active = !is_insomnia_active;
+                } else if (layer_state_is(OPTIONS)) {
+                    is_insomnia_active = !is_insomnia_active;
                 }
             }
             break;
@@ -301,7 +301,15 @@ void leader_end_user(void) {
             tap_code16(G(KC_R));
         };
         if (layer_state_is(WIN_BASE)) {
-            tap_code16(A(KC_F5));
+            tap_code16(KC_F5);
+        };
+    // winmac: url bar
+    } else if (leader_sequence_one_key(KC_DOT)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_L));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_L));
         };
     }
 }
