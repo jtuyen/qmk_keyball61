@@ -263,6 +263,9 @@ void leader_end_user(void) {
     } else if (leader_sequence_one_key(KC_O)) {
         tap_code16(C(KC_B));
         tap_code16(KC_O);
+    // mac: trigger expose
+    } else if (leader_sequence_one_key(KC_MINS)) {
+        tap_code16(C(KC_UP));
     // winmac: alt tab or gui tab
     } else if (leader_sequence_one_key(KC_TAB)) {
         if (layer_state_is(MAC_BASE)) {
