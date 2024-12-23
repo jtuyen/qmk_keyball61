@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [MAC_NAVIGATION] = LAYOUT_universal(
     KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
-    KC_NO, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), LGUI(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LGUI(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LGUI(KC_RIGHT), KC_NO, KC_BSPC,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_4),
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSA(KC_LEFT), RCS(KC_TAB), KC_PGDN, LSA(KC_RIGHT), TD(TD_MEDIA_PREV), TD(TD_MEDIA_NEXT),
     SCRL_MO,SCRL_MO_HOR,KC_NO,KC_NO,KC_NO,KC_NO,TO(0), TO(6),KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,KC_TRNS
@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [WIN_NAVIGATION] = LAYOUT_universal(
     KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
-    KC_NO, KC_NO, KC_NO, LGUI(KC_E), LCTL(KC_F5), LSG(KC_RIGHT), LALT(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LALT(KC_RIGHT), KC_NO, KC_BSPC,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LSG(KC_RIGHT), LALT(KC_LEFT), LCTL(KC_TAB), KC_PGUP, LALT(KC_RIGHT), KC_NO, KC_BSPC,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, LCTL(KC_B), LSG(KC_S),
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RCS(KC_LEFT), RCS(KC_TAB), KC_PGDN, RCS(KC_RIGHT), TD(TD_MEDIA_PREV), TD(TD_MEDIA_NEXT),
     SCRL_MO, SCRL_MO_HOR, KC_NO, KC_NO, KC_NO, KC_NO, TO(3), TO(6), KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,KC_TRNS
@@ -264,7 +264,7 @@ void leader_end_user(void) {
         tap_code16(C(KC_B));
         tap_code16(KC_O);
     // mac: trigger expose
-    } else if (leader_sequence_one_key(KC_MINS)) {
+    } else if (leader_sequence_one_key(TD(TD_MEDIA_MUTE))) {
         tap_code16(C(KC_UP));
     // winmac: alt tab or gui tab
     } else if (leader_sequence_one_key(KC_TAB)) {
@@ -314,6 +314,9 @@ void leader_end_user(void) {
         if (layer_state_is(WIN_BASE)) {
             tap_code16(C(KC_L));
         };
+    // winmac: open finder/explorer
+    } else if (leader_sequence_one_key(KC_E)) {
+        tap_code16(G(KC_E));
     }
 }
 
