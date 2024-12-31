@@ -317,6 +317,14 @@ void leader_end_user(void) {
     // winmac: open finder/explorer
     } else if (leader_sequence_one_key(KC_E)) {
         tap_code16(G(KC_E));
+    // winmac: select all
+    } else if (leader_sequence_one_key(KC_A)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_A));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_A));
+        };
     }
 }
 
