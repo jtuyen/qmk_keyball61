@@ -325,6 +325,14 @@ void leader_end_user(void) {
         if (layer_state_is(WIN_BASE)) {
             tap_code16(C(KC_A));
         };
+    // winmac: search text
+    } else if (leader_sequence_one_key(KC_F)) {
+        if (layer_state_is(MAC_BASE)) {
+            tap_code16(G(KC_F));
+        };
+        if (layer_state_is(WIN_BASE)) {
+            tap_code16(C(KC_F));
+        };
     }
 }
 
