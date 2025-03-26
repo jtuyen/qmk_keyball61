@@ -141,10 +141,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [OPTIONS] = LAYOUT_universal(
     TO(0),TO(3),KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_TRNS,
-    RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA,
+    RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+    RM_TOGG, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
   ),
 
 };
@@ -420,3 +420,54 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
     }
    return true;
 }
+
+const rgblight_segment_t PROGMEM RGB_MAC_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,RGB_CORAL}
+);
+const rgblight_segment_t PROGMEM RGB_MAC_SYMBOL[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,RGB_CORAL}
+);
+const rgblight_segment_t PROGMEM RGB_MAC_NAVIGATION[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,RGB_CORAL}
+);
+
+const rgblight_segment_t PROGMEM RGB_WIN_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,HSV_TEAL}
+);
+const rgblight_segment_t PROGMEM RGB_WIN_SYMBOL[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,HSV_TEAL}
+);
+const rgblight_segment_t PROGMEM RGB_WIN_NAVIGATION[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,HSV_TEAL}
+);
+
+const rgblight_segment_t PROGMEM RGB_OPTIONS[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0,37,HSV_PINK}
+);
+
+// Now define the array of layers. Later layers take precedence
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    RGB_MAC_BASE,
+    RGB_MAC_SYMBOL,
+    RGB_MAC_NAVIGATION,
+    RGB_WIN_BASE,
+    RGB_WIN_SYMBOL,
+    RGB_WIN_NAVIGATION,
+    RGB_OPTIONS
+);
+
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+};
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, MAC_BASE));
+    rgblight_set_layer_state(1, layer_state_cmp(state, MAC_SYMBOL));
+    rgblight_set_layer_state(2, layer_state_cmp(state, MAC_NAVIGATION));
+    rgblight_set_layer_state(3, layer_state_cmp(state, WIN_BASE));
+    rgblight_set_layer_state(4, layer_state_cmp(state, WIN_SYMBOL));
+    rgblight_set_layer_state(5, layer_state_cmp(state, WIN_NAVIGATION));
+    rgblight_set_layer_state(6, layer_state_cmp(state, OPTIONS));
+    return state;
+};
