@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_VAI, RGB_SPI, RGB_M_K, RGB_HUI, RGB_SAI, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     RGB_VAD, RGB_SPD, RGB_M_B, RGB_HUD, RGB_SAD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    RM_TOGG, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
+    UG_TOGG, RM_PREV, RM_NEXT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, INSOMNIA
   ),
 
 };
@@ -422,13 +422,13 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 }
 
 const rgblight_segment_t PROGMEM RGB_MAC_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,37,RGB_CORAL}
+    {0,37,HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM RGB_MAC_SYMBOL[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,37,RGB_CORAL}
+    {0,37,HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM RGB_MAC_NAVIGATION[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,37,RGB_CORAL}
+    {0,37,HSV_GREEN}
 );
 
 const rgblight_segment_t PROGMEM RGB_WIN_BASE[] = RGBLIGHT_LAYER_SEGMENTS(
