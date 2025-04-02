@@ -1,5 +1,9 @@
 #pragma once
 
+#define MASTER_LEFT
+#define SPLIT_USB_ENABLE
+#define SPLIT_WATCHDOG_ENABLE
+
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_SLEEP
     #define RGBLIGHT_LAYERS
