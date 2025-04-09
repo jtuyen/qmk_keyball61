@@ -340,6 +340,33 @@ void leader_end_user(void) {
         if (layer_state_is(WIN_BASE)) {
             tap_code16(C(S(KC_M)));
         };
+    // winmac: burpsuite switch to intruder
+    } else if (leader_sequence_two_keys(KC_M, KC_I)) {
+        tap_code16(C(S(KC_I)));
+    // winmac: burpsuite switch to repeater
+    } else if (leader_sequence_two_keys(KC_M, KC_R)) {
+        tap_code16(C(S(KC_R)));
+    // winmac: burpsuite switch to proxy
+    } else if (leader_sequence_two_keys(KC_M, KC_P)) {
+        tap_code16(C(S(KC_P)));
+    // winmac: burpsuite switch to target
+    } else if (leader_sequence_two_keys(KC_M, KC_T)) {
+        tap_code16(C(S(KC_T)));
+    // winmac: burpsuite switch to dashboard
+    } else if (leader_sequence_two_keys(KC_M, KC_D)) {
+        tap_code16(C(S(KC_D)));
+    // winmac: burpsuite send to repeater
+    } else if (leader_sequence_two_keys(KC_N, KC_R)) {
+        tap_code16(C(S(KC_D)));
+    // winmac: burpsuite send to intruder
+    } else if (leader_sequence_two_keys(KC_N, KC_I)) {
+        tap_code16(C(S(KC_D)));
+    // winmac: burpsuite URL encode key characters
+    }  else if (leader_sequence_two_keys(KC_N, KC_E)) {
+        tap_code16(C(KC_U));
+    // winmac: burpsuite URL decode
+    } else if (leader_sequence_two_keys(KC_N, KC_D)) {
+        tap_code16(C(S(KC_U)));
     }
 }
 
