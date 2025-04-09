@@ -357,10 +357,10 @@ void leader_end_user(void) {
         tap_code16(C(S(KC_D)));
     // winmac: burpsuite send to repeater
     } else if (leader_sequence_two_keys(KC_N, KC_R)) {
-        tap_code16(C(S(KC_D)));
+        tap_code16(C(KC_R));
     // winmac: burpsuite send to intruder
     } else if (leader_sequence_two_keys(KC_N, KC_I)) {
-        tap_code16(C(S(KC_D)));
+        tap_code16(C(KC_I));
     // winmac: burpsuite URL encode key characters
     }  else if (leader_sequence_two_keys(KC_N, KC_E)) {
         tap_code16(C(KC_U));
